@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedTab: TabType = .main
     var body: some View {
         VStack {
             HStack {
                 Text("VMCL ")
                     .font(.title)
                     .bold()
+                Spacer()
+                TabTypeView(selectedTab: $selectedTab)
                 Spacer()
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.red)
@@ -35,25 +38,9 @@ struct ContentView: View {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.green)
             )
-            HStack {
-                VStack {
-                    Text("左边栏")
-                    Spacer()
-                }
-                .padding()
-                .frame(width: 200)
-                .background(.white)
-                .foregroundStyle(.black)
-                Spacer()
-                HStack {
-                    VStack {
-                        Text("主内容")
-                        Spacer()
-                    }
-                    Spacer()
-                }
-                .padding()
-                .foregroundStyle(.black)
+            switch selectedTab {
+            case .main: MainTabView()
+            case .test: TestTabView()
             }
             Spacer()
         }
@@ -65,3 +52,41 @@ struct ContentView: View {
     ContentView()
 }
 
+enum TabType: String, CaseIterable, Identifiable {
+    case main = "主页"
+    case test = "测试"
+    
+    var id: String { self.rawValue }
+}
+
+
+struct TabTypeView: View {
+    @Binding var selectedTab: TabType
+    
+    var body: some View {
+        HStack {
+            ForEach(TabType.allCases) { tab in
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(selectedTab == tab ? Color.wind : Color.clear)
+                    .frame(width: 50, height: 30)
+                    
+                    .overlay(Text(tab.rawValue)
+                        .onTapGesture {
+                            selectedTab = tab
+                        }
+                        .foregroundStyle(.black)
+                    )
+            }
+        }
+    }
+}
+
+extension Color {
+    public static let wind = Color(hex: 0x00ffa6)
+    init(hex: UInt, opacity: Double = 1.0) {
+        let red = Double((hex & 0xFF0000) >> 16) / 255.0
+        let green = Double((hex & 0x00FF00) >> 8) / 255.0
+        let blue = Double(hex & 0x0000FF) / 255.0
+        self.init(red: red, green: green, blue: blue, opacity: opacity)
+    }
+}

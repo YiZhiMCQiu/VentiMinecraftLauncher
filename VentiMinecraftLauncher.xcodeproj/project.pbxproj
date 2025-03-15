@@ -10,9 +10,22 @@
 		EC8909212D85469D00DE9344 /* VentiMinecraftLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VentiMinecraftLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		EC8909442D8560CE00DE9344 /* Exceptions for "VentiMinecraftLauncher" folder in "VentiMinecraftLauncher" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = EC8909202D85469D00DE9344 /* VentiMinecraftLauncher */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		EC8909232D85469D00DE9344 /* VentiMinecraftLauncher */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EC8909442D8560CE00DE9344 /* Exceptions for "VentiMinecraftLauncher" folder in "VentiMinecraftLauncher" target */,
+			);
 			path = VentiMinecraftLauncher;
 			sourceTree = "<group>";
 		};
@@ -257,6 +270,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VentiMinecraftLauncher/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -285,6 +299,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VentiMinecraftLauncher/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
