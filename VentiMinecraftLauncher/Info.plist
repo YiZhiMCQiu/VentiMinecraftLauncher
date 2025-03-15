@@ -7,5 +7,18 @@
 		<string>en</string>
 		<string>zh_CN</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict/>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSServices</key>
+	<array>
+		<dict/>
+	</array>
 </dict>
 </plist>
