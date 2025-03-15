@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import AppKit
 
 @main
 struct VentiMinecraftLauncherApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        Settings {
+            EmptyView()
         }
+    }
+}
+
+class AppDelegate: NSObject, NSApplicationDelegate {
+    var windowController: NoTitleBarWindowController?
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        windowController = NoTitleBarWindowController()
     }
 }
